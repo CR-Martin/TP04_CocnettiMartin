@@ -24,7 +24,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump") && Mathf.Abs(_playerRigidbody.velocity.y) < JumpThreshold)
         {
-            //AudioManager.Instance.PlayEffect("Hit Sound");
             _playerRigidbody.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
         }
     }
