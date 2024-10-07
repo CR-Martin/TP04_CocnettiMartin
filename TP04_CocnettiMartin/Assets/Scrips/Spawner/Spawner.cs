@@ -5,6 +5,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     [SerializeField] private GameObject[] prefabs;
+    [SerializeField] private GameObject[] spawnPoints;
     [SerializeField] private Vector2 spawnRange;
 
     private int _minTimeToSpawn;
@@ -38,6 +39,8 @@ public class Spawner : MonoBehaviour
     {
         int randomIndex = Random.Range(0, prefabs.Length);
         GameObject prefab = prefabs[randomIndex];
-        Instantiate(prefab, transform.position, Quaternion.identity);
+        int randomPoint = Random.Range(0, spawnPoints.Length);
+        Vector3 tempVector = spawnPoints[randomPoint].transform.position;
+        Instantiate(prefab, tempVector /*transform.position*/, Quaternion.identity);
     }
 }
