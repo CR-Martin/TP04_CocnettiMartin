@@ -8,8 +8,8 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D _playerRigidbody;
     private const float JumpThreshold = 0.01f;
-    public float Camera_MoveSpeed = 1.5f;
-    private float _speed = 3;
+   // public float Camera_MoveSpeed = 1.5f;
+    public float _speed = 3;
 
     void Start()
     {

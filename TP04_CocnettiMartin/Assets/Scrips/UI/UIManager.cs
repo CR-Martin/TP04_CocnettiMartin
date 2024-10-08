@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -67,9 +68,16 @@ public class UIManager : MonoBehaviour
         mainMenuUI.SetActive(false);
     }
 
+    public void Reload()
+    {
+        Debug.Log("Relaod?");
+        SceneManager.LoadScene("SampleScene");
+
+    }
+
     private void GameOver()
     {
-        //gameOverUI.SetActive(true);
+        gameOverUI.SetActive(true);
         SetTimeToZero();
     }
 }
