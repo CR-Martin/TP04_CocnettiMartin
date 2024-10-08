@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D _playerRigidbody;
     private const float JumpThreshold = 0.01f;
+    public float Camera_MoveSpeed = 1.5f;
+    private float _speed = 3;
 
     void Start()
     {
@@ -18,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         CheckAndHandleJump();
+        _playerRigidbody.velocity = new Vector2(_speed, _playerRigidbody.velocity.y);
     }
 
     private void CheckAndHandleJump()

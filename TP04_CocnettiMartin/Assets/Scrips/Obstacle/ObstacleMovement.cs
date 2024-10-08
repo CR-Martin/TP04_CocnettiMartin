@@ -1,22 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class ObstacleMovement : MonoBehaviour
 {
-    private Rigidbody2D _playerRigidbody;
+    private Rigidbody2D _enemybody;
     [SerializeField] private float _speed;
-    
+    public static event Action OnObstacleCollision;
+
     void Start()
     {
-        _playerRigidbody = GetComponent<Rigidbody2D>();
+        _enemybody = GetComponent<Rigidbody2D>();
 
     }
 
-    // Update is called once per frame
     void Update()
     {
-        _playerRigidbody.velocity = new Vector2(-1 * _speed, _playerRigidbody.velocity.y);
+        _enemybody.velocity = new Vector2(-1 * _speed, _enemybody.velocity.y);
 
     }
 
@@ -24,8 +25,8 @@ public class ObstacleMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Time.timeScale = 0;
-            Debug.Log("Time stops");
+            OnObstacleCollision?.Invoke();
+            Destroy(this.gameObject);
         }
     }
 }
