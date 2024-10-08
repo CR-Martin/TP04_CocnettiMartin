@@ -11,23 +11,20 @@ public class PlayerLife : MonoBehaviour
     private void OnEnable()
     {
         ObstacleMovement.OnObstacleCollision += CollisionManager;
+        CoinMovement.OnCoinCollision += SetInmuneTrue;
     }
 
 
     private void OnDisable()
     {
         ObstacleMovement.OnObstacleCollision -= CollisionManager;
+        CoinMovement.OnCoinCollision -= SetInmuneTrue;
+
     }
 
     void Start()
     {
         SetInmuneFalse();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void CollisionManager()
